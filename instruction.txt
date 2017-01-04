@@ -1,0 +1,27 @@
+FOr this program, I implement the decipher.py gram to decode a message using letter frequencies.
+
+Program Requirements:
+The program will take as input an encoded file, and write the decrypted file.
+
+    1. Prompt the user for letter frequencies. You have two options on how to implement this requirement:
+       1. Using work from lab 10, then prompt the user for an English text file and calculate the relative frequencies myself. My prompt will be: Path to a file to parse:
+       2. Prompt for a file containing a set of standard frequencies directly, formatted described below. The prompt will be: Path to a frequencies file:
+       If a file does not exit, display: Error: cannot find and the filename, and quit the program.
+
+    2. Prompt the user for an encoded file and determine how far the alphabet was shifted in the cipher.
+       1. Note: only letters are encoded. Punctuation, numbers, and whitespace are all left alone.
+       2. Read the file in and calculate each encoded letter's relative frequency. If the file does not exist, display: Error: cannot find and the filename, and quit the program.
+       3. For each of the 26 possible alphabet rotations, multiply your calculated relative frequency value for that character with the expected calculated frequency of TRANSLATED character.
+
+          For example, my encoded character T has a relative frequency of 0.02, and for this rotation. I'm translating it to an A, which has a relative frequency of 0.08. My result for that character would be 0.02*0.08 = 0.0016.
+          To get the score for a single rotation, sum the relative frequency products for each translated letter.
+       
+       4. Notice that 0.02*0.08 + 0.08*0.02 = .0032, while 0.08*0.08 + 0.02*0.02 = .0068 - the better fit a rotation is, the higher our total score will be. The rotation is just the one with the highest score!
+
+       5. Helpful hint again: to shift letters, try combining the ord() function from last time with the chr() function - chr(ord('A') + 1) gives B. Remember to wrap around the end, though shifting Z by 1 should give A, not [.
+
+    3. Write the decoded file.
+       1. Using the best rotation, decode the message in the file.
+       2. All files should be written to output.txt in the current working directory.
+
+
